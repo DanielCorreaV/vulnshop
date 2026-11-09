@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="miel">
+<head>
+<title>Favoritos - VulnShop Lab</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- VULN: fuentes y jQuery externos sin SRI; jQuery 1.12.4 obsoleto (CVEs conocidos) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- TODO: quitar antes de produccion. Usuario de pruebas: admin / admin123 (panel en /admin.html) -->
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Librería del Puerto</a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#catalogo">Catálogo</a>
+    <a href="favoritos.html">Favoritos <span class="badge" id="badge">0</span></a>
+    <a href="index.html#visitas">Visitas</a>
+    <a href="login.html">Ingresar</a>
+  </nav>
+  <div class="themes" role="group" aria-label="Tema de color">
+    <button data-theme="miel" title="Miel" aria-label="Tema miel"></button>
+    <button data-theme="coral" title="Coral" aria-label="Tema coral"></button>
+    <button data-theme="salvia" title="Salvia" aria-label="Tema salvia"></button>
+  </div>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+</header>
+<main>
+  <section class="hero slim">
+    <h1>Mis favoritos</h1>
+    <p class="lead">Se guardan en este navegador (localStorage).</p>
+    <button id="clear-favs" class="ghost">Vaciar lista</button>
+  </section>
+  <section><div id="favs" class="grid"></div></section>
+</main>
+<footer>
+  <span>Lab educativo con vulnerabilidades intencionales. No usar en producción.</span>
+  <a href="https://example.org" target="_blank">Proveedor</a>
+  <!-- VULN: contador HTTP (contenido mixto) -->
+  <img src="http://example.com/pixel.gif" width="1" height="1" alt="">
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>window.FAV_PAGE = true;</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# VULN: archivo de respaldo expuesto (datos ficticios)
+DB_HOST=10.0.0.5
+DB_USER=root
+DB_PASS=Passw0rd!
+SMTP_PASS=correo123
